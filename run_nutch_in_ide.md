@@ -1,12 +1,10 @@
-#Nutch教程——导入Nutch工程，执行完整爬取 by 逼格DATA 
+##Nutch教程——导入Nutch工程，执行完整爬取 by 逼格DATA 
 
 在使用本教程之前，需要满足条件：
 
-1）有一台Linux或Linux虚拟机
-
-2）安装JDK（推荐1.7）
-
-3）安装Apache Ant
++ 1）有一台Linux或Linux虚拟机
++ 2）安装JDK（推荐1.7）
++ 3）安装Apache Ant
 
 下载Nutch源码：
 
@@ -14,12 +12,14 @@
 
 
 安装IDE：
+
 推荐使用Intellij或者Netbeans，如果用eclipse也可以，不推荐。
 Intellij官方下载地址：[http://www.jetbrains.com/idea/download/](http://www.jetbrains.com/idea/download/)
 
 转换：
 Nutch源码是用ant进行构建的，需要转换成eclipse工程才可以导入IDE正确使用,Intellij和Netbeans都可以支持ecilpse工程。
 解压下载的apache-nutch-1.9-src.zip，得到文件夹apache-nutch-1.9。
+
 在执行转换之前，我们先修改一下ivy中的一个源，将它改为开源中国的镜像，否则转换的过程会非常缓慢。(ant源码中并没有附带依赖jar包，ivy负责从网上自动下载jar包）。
 修改apache-nutch-1.9文件夹中的ivy/ivysettings.xml：
 
@@ -76,6 +76,7 @@ Nutch源码是用ant进行构建的，需要转换成eclipse工程才可以导�
 
 
 源码导入工程后，并不能执行完整的爬取。Nutch将爬取的流程切分成很多阶段，每个阶段分别封装在一个类的main函数中。在外面通过Linux Shell调用这些main函数，来完整爬取的流程。我们在后续教程中会对流程调度做一个详细的说明。
+
 下面我们来运行Nutch中最简单的流程：Inject。我们知道爬虫在初始阶段，是需要人工给出一个或多个url，作为起始点（广度遍历树的树根）。Inject的作用，就是把用户写在文件里的种子(一行一个url，是TextInputFormat)，插入到爬虫的URL管理文件(crawldb，是SequenceFile)中。
 从src文件夹中找到org.apache.nutch.crawl.Injector类：
 
@@ -90,6 +91,7 @@ Nutch源码是用ant进行构建的，需要转换成eclipse工程才可以导�
 
 
 可以看到,main函数其实是利用ToolRunner，执行了run(String[] args)。这里ToolRunner.run会从第二个参数(new Injector())这个对象中，找到run(String[] args)这个方法执行。
+
 从run方法中可以看出来，String[] args需要有2个参数，第一个参数表示爬虫的URL管理文件夹(输出），第二个参数表示种子文件夹（输入）。对hadoop中的map reduce程序来说，输入文件夹是必须存在的，输出文件夹应该不存在。我们创建一个文件夹 /tmp/urls，来存放种子文件（作为输入）。
 
 ![Nutch教程](http://img.blog.csdn.net/20150209125951812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQkdfREFUQQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
