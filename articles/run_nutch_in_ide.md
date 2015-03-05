@@ -480,4 +480,4 @@ Nutch源码是用ant进行构建的，需要转换成eclipse工程才可以导�
 
 本教程由[逼格DATA](https://github.com/CrawlScript/nutcher)提供，未经允许，禁止转载。
 
-可加入nutcher的bbs进行讨论：[nutcher.org](nutcher.org)
+可加入nutcher的bbs进行讨论：[Nutch开发者](nutcher.org)
