@@ -1,29 +1,16 @@
 #!/bin/bash
-#
-# Licensed to the Apache Software Foundation (ASF) under one or more
-# contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# 
+
+# 此中文注释由社区"Nutch开发者" nutcher.org提供，作者是"逼格DATA"，未经允许，禁止转载
+# 官方网站 http://nutcher.org
+# 教程github地址 https://github.com/CrawlScript/nutcher
+
+# 爬取命令 crawl 种子文件夹路径 存放数据文件夹路径 solr的URL 爬取深度（层数）
 # The Crawl command script : crawl <seedDir> <crawlDir> <solrURL> <numberOfRounds>
 #
 # 
 # UNLIKE THE NUTCH ALL-IN-ONE-CRAWL COMMAND THIS SCRIPT DOES THE LINK INVERSION AND 
 # INDEXING FOR EACH SEGMENT
 
-# 此中文注释由社区"Nutch开发者" nutcher.org提供，作者是"逼格DATA"，未经允许，禁止转载
-# 官方网站 http://nutcher.org
-# 教程github地址 https://github.com/CrawlScript/nutcher
 
 #$1 $2 ... $n 表示命令后跟的第n个参数
 #存放待注入种子的路径
@@ -159,7 +146,7 @@ do
   # call hadoop in distributed mode
   # or use ls
 
-  #爬取(fetch)任务需要获取上面生成(generate)的任务列表，generate任务会根据当前时间在segments文件夹中生成响应的segment文件夹(segments/时间),时间是用System.currentTimeMillis()生成的long类型的数值，数值越小时间越早，获取刚生成(generate)的segment的方法是：
+  # 爬取(fetch)任务需要获取上面生成(generate)的任务列表，generate任务会根据当前时间在segments文件夹中生成响应的segment文件夹(segments/时间),时间是用System.currentTimeMillis()生成的long类型的数值，数值越小时间越早，获取刚生成(generate)的segment的方法是：
   #    1.用ls命令获取segments文件夹下的文件列表(long类型列表)
   #    2.用sort命令将文件名(long类型的时间)排序(从小到大)
   #    3.用tail -n 1获取最后一行(最大的时间),也就是最新生成的segment文件夹
