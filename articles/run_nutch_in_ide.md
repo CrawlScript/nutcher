@@ -1,5 +1,9 @@
 ##Nutch教程——导入Nutch工程，执行完整爬取 by 逼格DATA 
 
+本教程由[逼格DATA](http://nutcher.org/book/)提供，未经允许，禁止转载。同时托管在[github](https://github.com/CrawlScript/nutcher)上。
+
+可加入nutcher的bbs进行讨论：[Nutch开发者](http://nutcher.org)
+
 在使用本教程之前，需要满足条件：
 
 + 1）有一台Linux或Linux虚拟机
@@ -478,6 +482,6 @@ Nutch源码是用ant进行构建的，需要转换成eclipse工程才可以导�
 教程持续更新中。。。。
 
 
-本教程由[逼格DATA](https://github.com/CrawlScript/nutcher)提供，未经允许，禁止转载。
+本教程由[逼格DATA](http://nutcher.org/book/)提供，未经允许，禁止转载。同时托管在[github](https://github.com/CrawlScript/nutcher)上。
 
-可加入nutcher的bbs进行讨论：[Nutch开发者](nutcher.org)
+可加入nutcher的bbs进行讨论：[Nutch开发者](http://nutcher.org)
