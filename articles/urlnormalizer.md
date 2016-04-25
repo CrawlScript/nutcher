@@ -1,4 +1,4 @@
-##Nutch教程——URLNormalizer源码详解 by 逼格DATA
+##Nutch教程——URLNormalizer源码详解
 
 
 
